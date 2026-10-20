@@ -6,8 +6,8 @@
 
 | Integrante | Correo |
 |---|---|
-| _Nombre Apellido 1_ | _correo_ |
-| _Nombre Apellido 2_ | _correo_ |
+| Jennifer Gonzalez | jennyfer.gonzalez@inacapmail.cl |
+| Rodrigo Cutiño | rodrigo.cutino@inacapmail.cl |
 
 **Caso elegido:** Monitoreo de temperatura / humedad, con activación de riego.
 
