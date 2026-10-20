@@ -2,7 +2,7 @@
 # --------------------------------------------------
 
 # Estudiantes
-- Jennyfer Gonzalez
+- Jenniffer Gonzalez
 - Rodrigo Cutiño
 
 # Monitoreo de temperatura / humedad, con activación de riegoSolución para agricultura de precisión que optimiza el uso hídrico. Un sensor
