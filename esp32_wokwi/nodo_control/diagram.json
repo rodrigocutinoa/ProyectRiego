@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "author": "EVA1 TI3V42 - Nodo de control riego",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-led", "id": "ledAlarma", "top": -30, "left": 180, "attrs": { "color": "red", "label": "ALARMA" } },
+    { "type": "wokwi-led", "id": "ledEnlace", "top": -30, "left": 230, "attrs": { "color": "green", "label": "ENLACE" } },
+    { "type": "wokwi-led", "id": "ledBomba", "top": -30, "left": 280, "attrs": { "color": "blue", "label": "BOMBA" } },
+    { "type": "wokwi-resistor", "id": "r1", "top": 60, "left": 175, "rotate": 90, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r2", "top": 60, "left": 225, "rotate": 90, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r3", "top": 60, "left": 275, "rotate": 90, "attrs": { "value": "220" } }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+
+    [ "esp:25", "ledAlarma:A", "red", [] ],
+    [ "esp:26", "ledEnlace:A", "green", [] ],
+    [ "esp:27", "ledBomba:A", "blue", [] ],
+    [ "ledAlarma:C", "r1:1", "black", [] ],
+    [ "ledEnlace:C", "r2:1", "black", [] ],
+    [ "ledBomba:C", "r3:1", "black", [] ],
+    [ "r1:2", "esp:GND.2", "black", [] ],
+    [ "r2:2", "esp:GND.2", "black", [] ],
+    [ "r3:2", "esp:GND.2", "black", [] ]
+  ],
+  "dependencies": {}
+}

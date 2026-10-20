@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "author": "EVA1 TI3V42 - Nodo sensor riego",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -105.3, "left": -158.4, "attrs": { "temperature": "24", "humidity": "55" } },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": 145.1, "left": -191.4, "attrs": {} },
+    { "type": "wokwi-text", "id": "txt1", "top": 220.8, "left": -201.6, "attrs": { "text": "Humedad suelo" } },
+    { "type": "wokwi-relay-module", "id": "rele1", "top": -38.2, "left": 192, "attrs": {} },
+    { "type": "wokwi-resistor", "id": "r1", "top": -110.4, "left": 316.25, "rotate": 90, "attrs": { "value": "220" } },
+    { "type": "wokwi-led", "id": "ledBomba", "top": -195.6, "left": 311.4, "attrs": { "color": "blue", "label": "BOMBA" } },
+    { "type": "wokwi-resistor", "id": "r2", "top": 168, "left": 191.45, "rotate": 90, "attrs": { "value": "220" } },
+    { "type": "wokwi-led", "id": "ledFalla", "top": 92.4, "left": 186.6, "attrs": { "color": "red", "label": "FALLA" } }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+
+    [ "dht1:VCC", "esp:3V3", "red", [] ],
+    [ "dht1:GND", "esp:GND.1", "black", [] ],
+    [ "dht1:SDA", "esp:15", "green", [] ],
+
+    [ "pot1:VCC", "esp:3V3", "red", [] ],
+    [ "pot1:GND", "esp:GND.1", "black", [] ],
+    [ "pot1:SIG", "esp:34", "orange", [] ],
+
+    [ "rele1:VCC", "esp:5V", "red", [] ],
+    [ "rele1:GND", "esp:GND.2", "black", [] ],
+    [ "rele1:IN", "esp:26", "purple", [] ],
+    [ "rele1:COM", "esp:3V3", "red", [] ],
+    [ "rele1:NO", "r1:2", "blue", [] ],
+    [ "r1:1", "ledBomba:A", "blue", [] ],
+    [ "ledBomba:C", "esp:GND.2", "black", [] ],
+
+    [ "esp:4", "ledFalla:A", "red", [] ],
+    [ "ledFalla:C", "r2:1", "black", [] ],
+    [ "r2:2", "esp:GND.3", "black", [] ]
+  ],
+  "dependencies": {}
+}

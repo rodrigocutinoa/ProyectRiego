@@ -1,0 +1,11 @@
+# Secretos locales (clave compartida). Se sube solo secretos.example.h
+secretos.h
+
+# Arduino / editores
+build/
+.vscode/
+*.bin
+*.hex
+
+# macOS
+.DS_Store
