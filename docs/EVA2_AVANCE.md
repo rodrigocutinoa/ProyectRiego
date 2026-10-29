@@ -44,14 +44,14 @@ Limitaciones encontradas:
 - Las placas **scripted** son generadores de tráfico. Pueden ser broker MQTT, pero no publican como clientes.
 - El emulador Android llega al computador en `10.0.2.2`. Un teléfono físico necesita estar en la misma red Wi-Fi y que el escenario use `listen: 0.0.0.0`.
 
-Issues abiertos en el repo del profesor (en inglés y español):
+Issues en el repo del profesor (en inglés y español). #54, #55 y #56 siguen abiertos:
 
 | # | Tema |
 |---|---|
 | [#54](https://github.com/Rixmerz/hertzbench/issues/54) | ESP32 en macOS arm64 (`libqemu-xtensa`) |
 | [#55](https://github.com/Rixmerz/hertzbench/issues/55) | Placas scripted como clientes MQTT |
 | [#56](https://github.com/Rixmerz/hertzbench/issues/56) | Herramienta MCP `mqtt_publish` |
-| [#57](https://github.com/Rixmerz/hertzbench/issues/57) | Docs: emulador Android y alternativa a BLE en macOS |
+| [#57](https://github.com/Rixmerz/hertzbench/issues/57) | Docs: emulador Android y alternativa a BLE en macOS. **Cerrado:** documentado en el PR [#58](https://github.com/Rixmerz/hertzbench/pull/58) (2026-10-29). El profesor pide un reporte de prueba real del emulador por `10.0.2.2` |
 
 ## 3. Arquitectura propuesta (pendiente de confirmar)
 
@@ -76,6 +76,8 @@ Issues abiertos en el repo del profesor (en inglés y español):
 - **Medio:** Wi-Fi con MQTT, porque BLE no es posible en el puente sobre macOS ni Windows. Hay que justificarlo en el README, ya que la guía recomienda Bluetooth.
 
 ## 4. Decisiones pendientes
+
+- [ ] Cuando la app corra en el emulador, enviar a hertzbench un reporte de prueba del puente por `10.0.2.2:1883` (plantilla *test report*), que pidió el profesor en el #57.
 
 - [ ] Descargar el binario de hertzbench y registrarlo como MCP (ver la sección 5).
 - [ ] Confirmar que el nodo de riego sea un rol de la misma app, y no un ESP32 simulado.
@@ -153,3 +155,4 @@ Es el equipo más holgado para Android Studio con dos emuladores a la vez (nodo 
 | Fecha | Avance |
 |---|---|
 | 2026-10-28 | Repo clonado. Guía de la Unidad 2 revisada completa. Revisión de hertzbench (MCP, puente IP y BLE, limitaciones). Abiertos los issues #54–#57 en hertzbench. Arquitectura propuesta y decisiones pendientes registradas en este archivo. |
+| 2026-10-29 | El profesor cerró el #57: el emulador Android (`10.0.2.2`) y la alternativa a BLE en macOS quedaron documentados en `docs/mobile-bridge.md` (PR #58). Pidió un reporte de ejecución real. Notas de las tres máquinas de trabajo agregadas. |
