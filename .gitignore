@@ -9,3 +9,6 @@ build/
 
 # macOS
 .DS_Store
+
+# Guía del profesor (material del curso, no se publica)
+_Document/
