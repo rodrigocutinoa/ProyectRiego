@@ -111,9 +111,22 @@ Después hay que reiniciar Claude Code.
 
 **Android Studio:** descargarlo desde <https://developer.android.com/studio>. En macOS también se puede con `brew install --cask android-studio`.
 
-### Compatibilidad de los equipos (revisada el 2026-10-28)
+### Máquinas de trabajo (revisadas el 2026-10-28)
 
-**MacBook Pro 2016** (Intel Core de 6.ª generación, 16 GB de RAM, 256 GB de SSD, **macOS 14 Sonoma**). Apple no da Sonoma a este modelo, así que lo más probable es que esté instalado con OpenCore Legacy Patcher, que no es oficial.
+**1. MacBook Air M2 (2022)**: Apple M2, 24 GB de RAM, SSD de 460 GB (297 GB libres), macOS 26.7.1.
+
+| Pieza | Estado |
+|---|---|
+| git, gh (con sesión de `rodrigocutinoa`), Homebrew | Instalados |
+| Claude Code | Se usa desde la extensión de VS Code (el comando `claude` no está en el PATH de la terminal) |
+| Android Studio | **Falta** (`brew install --cask android-studio`) |
+| hertzbench | **Falta**. Binario `hertzbench-macos-arm64`, el único Mac que prueba el CI del proyecto |
+| Deno, Docker | No instalados. No hacen falta si se usa el binario de hertzbench |
+| Puente BLE de hertzbench | No disponible (solo funciona en Linux). Se usa el puente IP con MQTT |
+
+Es la máquina recomendada para hertzbench y la simulación por MCP.
+
+**2. MacBook Pro 2016** (Intel Core de 6.ª generación, 16 GB de RAM, 256 GB de SSD, **macOS 14 Sonoma**). Apple no da Sonoma a este modelo, así que lo más probable es que esté instalado con OpenCore Legacy Patcher, que no es oficial.
 
 | Pieza | ¿Funciona? | Motivo |
 |---|---|---|
@@ -123,6 +136,15 @@ Después hay que reiniciar Claude Code.
 | Disco de 256 GB | Ajustado | El IDE, el SDK y una imagen del emulador ocupan unos 20 a 30 GB. Conviene usar una sola imagen del emulador o un teléfono físico. |
 
 Si algo falla solo en este equipo (por ejemplo, la aceleración del emulador), puede deberse al parche de OpenCore y no al proyecto.
+
+**3. PC con Windows** (especificaciones por completar: procesador, RAM, disco, versión de Windows).
+
+| Pieza | ¿Funciona? | Requisito o nota |
+|---|---|---|
+| Android Studio y emulador | Sí | Windows 10 u 11 de 64 bits. Hay que activar la virtualización en la BIOS (VT-x o AMD-V). Se recomiendan 16 GB de RAM. |
+| Claude Code | Sí | Windows 10 1809 o superior. Se recomienda Git for Windows. |
+| hertzbench `windows-x64.exe` | Sí | Probado por la comunidad. El firewall pide permiso la primera vez. Si el puerto 8080 está ocupado por `http.sys`, se usa otro `listen_port`. |
+| Puente BLE / ESP32 real | No de forma nativa | Solo con WSL2 (y para BLE, además un adaptador USB). |
 
 ## 6. Bitácora
 
