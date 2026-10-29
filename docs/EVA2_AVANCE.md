@@ -113,6 +113,22 @@ Después hay que reiniciar Claude Code.
 
 **Android Studio:** descargarlo desde <https://developer.android.com/studio>. En macOS también se puede con `brew install --cask android-studio`.
 
+### Requisitos oficiales de Android Studio
+
+Fuente: [developer.android.com/studio/install](https://developer.android.com/studio/install), revisada el 2026-10-29. La versión actual es Rabbit 2, 2026.2.2.
+
+| | Mínimo (solo IDE / IDE + emulador) | Recomendado |
+|---|---|---|
+| **Windows** | Windows 10 de 64 bits. No funciona en CPU ARM | Windows de 64 bits más reciente |
+| **macOS** | macOS 12. Apple M1, o Intel Core de 6.ª generación o más nuevo (Google está dejando de soportar los Mac Intel) | macOS más reciente, Apple Silicon |
+| **CPU (Windows/Linux)** | Virtualización VT-x o AMD-V activa en la BIOS. Intel de 8.ª generación (i5-8xxx) o AMD Ryzen 1xxx | Intel i5/i7/i9 serie H/HK/HX o Ryzen 5–9. No se recomiendan las series U ni N |
+| **RAM** | 8 GB / 16 GB | 32 GB |
+| **Disco** | 8 GB / 16 GB libres | SSD con 32 GB libres o más |
+| **GPU (Windows, emulador)** | 4 GB de VRAM (GeForce 10 o más nueva, Radeon RX 5000) | 8 GB de VRAM (GeForce 20, Radeon RX 6600) |
+| **Pantalla** | 1280 × 800 | 1920 × 1080 |
+
+Cada emulador adicional (AVD) ocupa hasta 6 GB de disco. Correr varios a la vez requiere unos 4 GB de RAM por emulador.
+
 ### Máquinas de trabajo (revisadas el 2026-10-28)
 
 **1. MacBook Air M2 (2022)**: Apple M2, 24 GB de RAM, SSD de 460 GB (297 GB libres), macOS 26.7.1.
