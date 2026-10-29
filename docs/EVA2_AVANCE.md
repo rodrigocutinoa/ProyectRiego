@@ -137,7 +137,9 @@ Es la máquina recomendada para hertzbench y la simulación por MCP.
 
 Si algo falla solo en este equipo (por ejemplo, la aceleración del emulador), puede deberse al parche de OpenCore y no al proyecto.
 
-**3. PC con Windows** (especificaciones por completar: procesador, RAM, disco, versión de Windows).
+**3. ASUS Zenbook Pro 14 Duo OLED (UX8402Z) con Windows**: Intel Core i7-12700H (12.ª generación, 14 núcleos), 32 GB de RAM, SSD NVMe de 1 TB con DRAM. Falta anotar la versión de Windows (10 u 11).
+
+Es el equipo más holgado para Android Studio con dos emuladores a la vez (nodo y panel). El i7-12700H tiene VT-x; solo hay que comprobar que la virtualización esté activa en la BIOS o en el Administrador de tareas → Rendimiento → CPU → "Virtualización: Habilitado".
 
 | Pieza | ¿Funciona? | Requisito o nota |
 |---|---|---|
