@@ -111,6 +111,19 @@ Después hay que reiniciar Claude Code.
 
 **Android Studio:** descargarlo desde <https://developer.android.com/studio>. En macOS también se puede con `brew install --cask android-studio`.
 
+### Compatibilidad de los equipos (revisada el 2026-10-28)
+
+**MacBook Pro 2016** (Intel Core de 6.ª generación, 16 GB de RAM, 256 GB de SSD, **macOS 14 Sonoma**). Apple no da Sonoma a este modelo, así que lo más probable es que esté instalado con OpenCore Legacy Patcher, que no es oficial.
+
+| Pieza | ¿Funciona? | Motivo |
+|---|---|---|
+| Android Studio y emulador | Sí | Google pide macOS 12 o superior y un Intel de 6.ª generación o más nuevo. 16 GB de RAM alcanzan para el IDE y el emulador. Google está dejando de dar soporte a los Mac Intel, así que una versión futura podría excluirlo. |
+| Claude Code (CLI y extensión) | Sí | Requiere macOS 13.0 o superior y procesador x64 o ARM64. |
+| hertzbench `macos-x64` | Probablemente sí, sin verificar | El binario existe, pero la comunidad no lo ha probado. Si falla, se puede correr desde el código fuente con Deno 2. |
+| Disco de 256 GB | Ajustado | El IDE, el SDK y una imagen del emulador ocupan unos 20 a 30 GB. Conviene usar una sola imagen del emulador o un teléfono físico. |
+
+Si algo falla solo en este equipo (por ejemplo, la aceleración del emulador), puede deberse al parche de OpenCore y no al proyecto.
+
 ## 6. Bitácora
 
 | Fecha | Avance |
