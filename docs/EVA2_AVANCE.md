@@ -172,3 +172,4 @@ Es el equipo más holgado para Android Studio con dos emuladores a la vez (nodo 
 |---|---|
 | 2026-10-28 | Repo clonado. Guía de la Unidad 2 revisada completa. Revisión de hertzbench (MCP, puente IP y BLE, limitaciones). Abiertos los issues #54–#57 en hertzbench. Arquitectura propuesta y decisiones pendientes registradas en este archivo. |
 | 2026-10-29 | El profesor cerró el #57: el emulador Android (`10.0.2.2`) y la alternativa a BLE en macOS quedaron documentados en `docs/mobile-bridge.md` (PR #58). Pidió un reporte de ejecución real. Notas de las tres máquinas de trabajo agregadas. |
+| 2026-11-03 | Requisitos de Android Studio y escenario de una M2 con 16 GB. Error `0x800f0950` al instalar OpenSSH en Windows (solución con winget). Opciones para conectarse directo a la máquina virtual. Todo resumido en [RETOMAR.md](RETOMAR.md) para la próxima sesión. |
