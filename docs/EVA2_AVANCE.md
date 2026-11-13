@@ -79,10 +79,10 @@ Issues en el repo del profesor (en inglés y español). #54, #55 y #56 siguen ab
 
 - [ ] Cuando la app corra en el emulador, enviar a hertzbench un reporte de prueba del puente por `10.0.2.2:1883` (plantilla *test report*), que pidió el profesor en el #57.
 
-- [ ] Descargar el binario de hertzbench y registrarlo como MCP (ver la sección 5).
-- [ ] Confirmar que el nodo de riego sea un rol de la misma app, y no un ESP32 simulado.
-- [ ] Decidir dónde va el código Android: `android_app/` en este repo, o un repo aparte por persona.
-- [ ] Instalar Android Studio.
+- [x] Compilar hertzbench y registrarlo como MCP (2026-11-13, M2 de 16 GB, ver la sección 5).
+- [ ] Confirmar que el nodo de riego sea un rol de la misma app, y no un ESP32 simulado. Mientras tanto, el nodo es scripted en `hertzbench/riego-mqtt.yaml`.
+- [x] Dónde va el código Android: **un repo aparte por persona** (la evaluación es individual). Falta confirmar el nombre `RiegoIoT-App` y crearlo.
+- [x] Instalar Android Studio en la M2 de 16 GB (2026-11-13). Falta abrirlo para descargar el SDK y crear el emulador.
 
 ## 5. Preparar una máquina nueva
 
@@ -92,7 +92,9 @@ cd ProyectRiego
 # copiar la guía del profesor a _Document/ (no se sube)
 ```
 
-**hertzbench.** Se descarga desde los [releases](https://github.com/Rixmerz/hertzbench/releases), junto con `SHA256SUMS`. Hay que clonar también el repo de hertzbench para tener los escenarios de ejemplo.
+**hertzbench, la forma recomendada (macOS).** `hertzbench/preparar-mac.sh` instala Deno y mosquitto, clona hertzbench al lado del repo, compila el binario para ese Mac, lo enlaza en `~/.local/bin` y prueba el puente. Los pasos completos están en [RETOMAR.md](RETOMAR.md), sección 0.
+
+**hertzbench desde un release** (Windows, o si falla la compilación). Se descarga desde los [releases](https://github.com/Rixmerz/hertzbench/releases), junto con `SHA256SUMS`. Hay que clonar también el repo de hertzbench para tener los escenarios de ejemplo.
 
 | Sistema | Binario | Notas |
 |---|---|---|
@@ -104,7 +106,7 @@ cd ProyectRiego
 
 ```bash
 # macOS
-claude mcp add hertzbench -- /ruta/hertzbench-macos-arm64 mcp --workspace "$(pwd)/simulacion"
+claude mcp add hertzbench -- hertzbench mcp --workspace "$(pwd)"   # con preparar-mac.sh
 # Windows (PowerShell)
 claude mcp add hertzbench -- C:\ruta\hertzbench-windows-x64.exe mcp --workspace "$PWD\simulacion"
 ```
@@ -144,6 +146,18 @@ Cada emulador adicional (AVD) ocupa hasta 6 GB de disco. Correr varios a la vez 
 
 Es la máquina recomendada para hertzbench y la simulación por MCP.
 
+**1b. MacBook Air M2 (Mac14,2) de 16 GB**: Apple M2, 16 GB de RAM, SSD de 256 GB (99 GB libres), macOS 27.0.1. Revisada el 2026-11-13.
+
+| Pieza | Estado |
+|---|---|
+| Homebrew, git | Instalados |
+| gh | **No instalado** (`brew install gh`; hace falta para enviar los reportes a hertzbench) |
+| Deno 2.9.8, mosquitto | Instalados con Homebrew (2026-11-13) |
+| hertzbench | Compilado desde el código fuente (`19847355`), en `~/.local/bin`, y registrado como MCP. Puente MQTT probado: PASS |
+| Android Studio | Instalado (2026-11-13); falta el SDK y el emulador |
+
+Aplican las recomendaciones para una M2 de 16 GB de [RETOMAR.md](RETOMAR.md), sección 4: un solo emulador con 2 GB de RAM y `org.gradle.jvmargs=-Xmx2g`.
+
 **2. MacBook Pro 2016** (Intel Core de 6.ª generación, 16 GB de RAM, 256 GB de SSD, **macOS 14 Sonoma**). Apple no da Sonoma a este modelo, así que lo más probable es que esté instalado con OpenCore Legacy Patcher, que no es oficial.
 
 | Pieza | ¿Funciona? | Motivo |
@@ -173,4 +187,5 @@ Es el equipo más holgado para Android Studio con dos emuladores a la vez (nodo 
 | 2026-10-28 | Repo clonado. Guía de la Unidad 2 revisada completa. Revisión de hertzbench (MCP, puente IP y BLE, limitaciones). Abiertos los issues #54–#57 en hertzbench. Arquitectura propuesta y decisiones pendientes registradas en este archivo. |
 | 2026-10-29 | El profesor cerró el #57: el emulador Android (`10.0.2.2`) y la alternativa a BLE en macOS quedaron documentados en `docs/mobile-bridge.md` (PR #58). Pidió un reporte de ejecución real. Notas de las tres máquinas de trabajo agregadas. |
 | 2026-11-03 | Requisitos de Android Studio y escenario de una M2 con 16 GB. Error `0x800f0950` al instalar OpenSSH en Windows (solución con winget). Opciones para conectarse directo a la máquina virtual. Todo resumido en [RETOMAR.md](RETOMAR.md) para la próxima sesión. |
-| 2026-11-13 | hertzbench compilado desde el código fuente en la M2 (Deno 2.9.8 por Homebrew, binario `hertzbench-macos-arm64`). El ejemplo `udp-3-scripted.yaml` pasó (5/5 aserciones). `deno task compile` falla con el Deno de Homebrew porque el permiso `--allow-run=deno` no cubre la ruta real del binario; se resolvió corriendo `scripts/compile.ts` con `--allow-run`. Binario enlazado en `~/.local/bin` (`hertzbench`, `hzb`) y MCP registrado en Claude Code con el workspace en este repo. Escenario `hertzbench/riego-mqtt.yaml` (broker MQTT, nodo de riego scripted y puente en `127.0.0.1:1883`), probado con mosquitto desde el Mac mediante `hertzbench/probar-puente.sh`: PASS en ambos sentidos. Borradores de reporte para el profesor en `hertzbench/reportes/`. |
+| 2026-11-13 | hertzbench compilado desde el código fuente en la MacBook Air M2 de 16 GB (Deno 2.9.8 por Homebrew, binario `hertzbench-macos-arm64`). El ejemplo `udp-3-scripted.yaml` pasó (5/5 aserciones). `deno task compile` falla con el Deno de Homebrew porque el permiso `--allow-run=deno` no cubre la ruta real del binario; se resolvió corriendo `scripts/compile.ts` con `--allow-run`. Binario enlazado en `~/.local/bin` (`hertzbench`, `hzb`) y MCP registrado en Claude Code con el workspace en este repo. Escenario `hertzbench/riego-mqtt.yaml` (broker MQTT, nodo de riego scripted y puente en `127.0.0.1:1883`), probado con mosquitto desde el Mac mediante `hertzbench/probar-puente.sh`: PASS en ambos sentidos. Borradores de reporte para el profesor en `hertzbench/reportes/`. |
+| 2026-11-13 (2) | Script `hertzbench/preparar-mac.sh` para dejar listo cualquier Mac en un paso, probado en la M2 de 16 GB: PASS. Android Studio instalado con Homebrew; todavía no se abre. Decisión: un repo aparte por persona para la app (`RiegoIoT-App`, falta confirmar el nombre). Notas para retomar en otro Mac en [RETOMAR.md](RETOMAR.md), sección 0. |
