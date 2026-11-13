@@ -5,7 +5,7 @@ Notas de la última sesión para seguir sin perder contexto. El detalle completo
 ## Dónde quedamos
 
 - Revisamos la guía del profesor (Unidad 2) y hertzbench. La arquitectura propuesta es una app Android con dos roles, Nodo de riego y Panel, conectados por MQTT a través del puente IP de hertzbench.
-- Aún **no se ha escrito código Android** ni se ha instalado hertzbench.
+- Aún **no se ha escrito código Android**. hertzbench ya está compilado en la M2 y registrado como MCP (2026-11-13).
 - Se abrieron los issues #54–#57 en hertzbench. El profesor cerró el #57, que agregó a su documentación el acceso del emulador Android por `10.0.2.2` y la alternativa MQTT a BLE en macOS. Pidió un reporte de ejecución real.
 
 ## 1. Decisiones que faltan (bloquean la implementación)
@@ -70,8 +70,8 @@ Después de eso: instalar `sshd` en la máquina virtual, copiar la llave públic
 ## 5. Orden sugerido para la próxima sesión
 
 1. Responder las 4 decisiones de la sección 1.
-2. Instalar hertzbench y registrar el MCP; luego reiniciar Claude Code.
-3. Crear un escenario con un broker MQTT simulado y el puente expuesto en `1883`.
+2. ~~Instalar hertzbench y registrar el MCP; luego reiniciar Claude Code.~~ Hecho el 2026-11-13.
+3. ~~Crear un escenario con un broker MQTT simulado y el puente expuesto en `1883`.~~ Hecho el 2026-11-13: [hertzbench/riego-mqtt.yaml](../hertzbench/riego-mqtt.yaml). Prueba con `hertzbench/probar-puente.sh`; los logs quedan en `hertzbench/logs/` (no se suben) y los reportes en `hertzbench/reportes/`.
 4. Instalar Android Studio y crear el proyecto (minSdk 26, Kotlin DSL, Compose).
 5. Implementar el login y la notificación cuando el riego se enciende o se apaga. Probar en el emulador por `10.0.2.2:1883`.
 6. Enviar el reporte de prueba a hertzbench, como pidió el profesor.

@@ -1,0 +1,57 @@
+# ProyectRiego (EVA2): broker MQTT simulado con el puente IP en el puerto 1883.
+#
+# Nodos:
+#   broker      broker MQTT 3.1.1 (QoS 0) en el aire simulado.
+#   nodo-riego  nodo de riego de reemplazo (scripted) mientras no exista la app:
+#               publica lecturas de humedad y el estado de la bomba, y escucha
+#               los comandos del panel.
+#   phone       el puente: la app en el emulador entra por tcp://10.0.2.2:1883,
+#               y desde el Mac por 127.0.0.1:1883.
+#
+# Mensajes (docs/EVA2_AVANCE.md, sección 3):
+#   riego/lectura  LECTURA;suelo;<n>   nodo -> panel
+#   riego/estado   ON | OFF            nodo -> panel
+#   riego/cmd      CMD;bomba;ON|OFF    panel -> nodo
+#
+# Prueba desde el Mac:
+#   hzb run hertzbench/riego-mqtt.yaml --out /tmp/riego-out
+#   mosquitto_sub -h 127.0.0.1 -p 1883 -t 'riego/#' -v
+#   mosquitto_pub -h 127.0.0.1 -p 1883 -t riego/cmd -m 'CMD;bomba;ON'
+name: riego-mqtt
+seed: 42
+duration: 10m
+environment:
+  preset: indoor_office
+  shadowing_sigma_db: 0
+nodes:
+  - id: broker
+    board: scripted
+    position: [0, 0]
+    radios: [{ phy: wifi, channel: 6 }]
+    firmware:
+      serve:
+        - { port: 1883, protocol: mqtt }
+  - id: nodo-riego
+    board: scripted
+    position: [8, 0]
+    radios: [{ phy: wifi, channel: 6 }]
+    firmware:
+      send:
+        - to: broker
+          via: mqtt
+          topic: riego/lectura
+          every: 5s
+          payload: ["LECTURA;suelo;42", "LECTURA;suelo;38", "LECTURA;suelo;33", "LECTURA;suelo;29", "LECTURA;suelo;61", "LECTURA;suelo;55"]
+        - { to: broker, via: mqtt, topic: riego/estado, every: 15s, payload: ["OFF", "ON"] }
+      subscribe:
+        - { to: broker, topic: riego/cmd }
+bridge:
+  id: phone
+  position: [3, 3]
+  listen: 127.0.0.1
+  expose:
+    - { node: broker, port: 1883, service: mqtt, listen_port: 1883 }
+assertions:
+  - serial: { node: broker, contains: "mqtt connect nodo-riego", within: 5s }
+  - serial: { node: broker, contains: 'mqtt publish riego/lectura "LECTURA;suelo;42" from nodo-riego', within: 10s }
+  - serial: { node: broker, contains: 'mqtt publish riego/estado "OFF" from nodo-riego', within: 10s }

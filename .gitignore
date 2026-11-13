@@ -12,3 +12,6 @@ build/
 
 # Guía del profesor (material del curso, no se publica)
 _Document/
+
+# Logs de pruebas de hertzbench (rutas locales; los reportes van en hertzbench/reportes/)
+hertzbench/logs/
