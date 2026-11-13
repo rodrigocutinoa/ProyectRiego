@@ -1,5 +1,16 @@
 # Retomar desde aquí (2026-11-13)
 
+> **Para seguir en el Mac nuevo:**
+>
+> ```bash
+> git clone https://github.com/rodrigocutinoa/ProyectRiego.git ~/Dev/Inacap/AppIoT/ProyectRiego
+> cd ~/Dev/Inacap/AppIoT/ProyectRiego
+> hertzbench/preparar-mac.sh
+> code .
+> ```
+>
+> Al abrir Claude Code, aprobar el servidor `hertzbench` y escribirle: *"lee docs/RETOMAR.md y sigamos"*.
+
 Notas de la última sesión para seguir sin perder contexto, en este Mac o en otro. El detalle completo está en [EVA2_AVANCE.md](EVA2_AVANCE.md).
 
 ## Dónde quedamos

@@ -12,3 +12,18 @@ El repositorio tiene dos versiones del mismo prototipo. Las dos usan el mismo pr
 Cada carpeta tiene su propio README con todas las secciones que pide la evaluación: integrantes, componentes, diagrama, formato de mensajes, brechas de seguridad, prácticas OT y video.
 
 La clave compartida y los datos de WiFi van en `secretos.h`, que está en [.gitignore](.gitignore). Solo se publican los archivos `secretos.example.h`.
+
+## EVA2 (en curso)
+
+App Android con simulación en hertzbench. El estado y los próximos pasos están en [docs/RETOMAR.md](docs/RETOMAR.md).
+
+> **Para seguir en el Mac nuevo:**
+>
+> ```bash
+> git clone https://github.com/rodrigocutinoa/ProyectRiego.git ~/Dev/Inacap/AppIoT/ProyectRiego
+> cd ~/Dev/Inacap/AppIoT/ProyectRiego
+> hertzbench/preparar-mac.sh
+> code .
+> ```
+>
+> Al abrir Claude Code, aprobar el servidor `hertzbench` y escribirle: *"lee docs/RETOMAR.md y sigamos"*.
