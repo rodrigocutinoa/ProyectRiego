@@ -106,6 +106,7 @@ cd ProyectRiego
 
 ```bash
 # macOS
+# no hace falta: el .mcp.json del repo lo registra al abrir Claude Code
 claude mcp add hertzbench -- hertzbench mcp --workspace "$(pwd)"   # con preparar-mac.sh
 # Windows (PowerShell)
 claude mcp add hertzbench -- C:\ruta\hertzbench-windows-x64.exe mcp --workspace "$PWD\simulacion"
@@ -146,7 +147,7 @@ Cada emulador adicional (AVD) ocupa hasta 6 GB de disco. Correr varios a la vez 
 
 Es la máquina recomendada para hertzbench y la simulación por MCP.
 
-**1b. MacBook Air M2 (Mac14,2) de 16 GB**: Apple M2, 16 GB de RAM, SSD de 256 GB (99 GB libres), macOS 27.0.1. Revisada el 2026-11-13.
+**1b. MacBook Air M2 (Mac14,2) de 16 GB**: Apple M2, 16 GB de RAM, SSD de 256 GB (99 GB libres), macOS 27.0.1. Revisada el 2026-11-13. **Ya no se usa desde el 2026-11-13**; el trabajo sigue en otro Mac.
 
 | Pieza | Estado |
 |---|---|
@@ -189,3 +190,4 @@ Es el equipo más holgado para Android Studio con dos emuladores a la vez (nodo 
 | 2026-11-03 | Requisitos de Android Studio y escenario de una M2 con 16 GB. Error `0x800f0950` al instalar OpenSSH en Windows (solución con winget). Opciones para conectarse directo a la máquina virtual. Todo resumido en [RETOMAR.md](RETOMAR.md) para la próxima sesión. |
 | 2026-11-13 | hertzbench compilado desde el código fuente en la MacBook Air M2 de 16 GB (Deno 2.9.8 por Homebrew, binario `hertzbench-macos-arm64`). El ejemplo `udp-3-scripted.yaml` pasó (5/5 aserciones). `deno task compile` falla con el Deno de Homebrew porque el permiso `--allow-run=deno` no cubre la ruta real del binario; se resolvió corriendo `scripts/compile.ts` con `--allow-run`. Binario enlazado en `~/.local/bin` (`hertzbench`, `hzb`) y MCP registrado en Claude Code con el workspace en este repo. Escenario `hertzbench/riego-mqtt.yaml` (broker MQTT, nodo de riego scripted y puente en `127.0.0.1:1883`), probado con mosquitto desde el Mac mediante `hertzbench/probar-puente.sh`: PASS en ambos sentidos. Borradores de reporte para el profesor en `hertzbench/reportes/`. |
 | 2026-11-13 (2) | Script `hertzbench/preparar-mac.sh` para dejar listo cualquier Mac en un paso, probado en la M2 de 16 GB: PASS. Android Studio instalado con Homebrew; todavía no se abre. Decisión: un repo aparte por persona para la app (`RiegoIoT-App`, falta confirmar el nombre). Notas para retomar en otro Mac en [RETOMAR.md](RETOMAR.md), sección 0. |
+| 2026-11-13 (3) | Se deja de usar la M2 de 16 GB. `.mcp.json` en el repo para que Claude Code cargue hertzbench solo; `preparar-mac.sh` también instala Android Studio. Instrucciones para el Mac nuevo en [RETOMAR.md](RETOMAR.md), sección 0. |

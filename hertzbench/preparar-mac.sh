@@ -5,6 +5,10 @@
 #   3. Compila el binario para este Mac.
 #   4. Lo enlaza como `hertzbench` y `hzb` en ~/.local/bin.
 #   5. Corre probar-puente.sh para comprobar el puente MQTT en 1883.
+#   6. Instala Android Studio con Homebrew, si falta (SIN_ANDROID_STUDIO=1 lo omite).
+#
+# El MCP no hace falta registrarlo: el .mcp.json del repo lo carga al abrir
+# Claude Code en esta carpeta (hay que aprobarlo la primera vez).
 #
 # Uso: hertzbench/preparar-mac.sh
 # Los errores quedan en hertzbench/logs/preparar_<fecha>.log para reportarlos.
@@ -64,7 +68,16 @@ echo "== 5. Probar el puente MQTT"
   --out "$DIR/logs/udp-3-scripted" --quiet
 "$DIR/probar-puente.sh"
 
+echo "== 6. Android Studio"
+if [ -d "/Applications/Android Studio.app" ]; then
+  echo "ya instalado"
+elif [ "${SIN_ANDROID_STUDIO:-0}" = 1 ]; then
+  echo "omitido (SIN_ANDROID_STUDIO=1)"
+else
+  brew install --cask android-studio
+fi
+
 echo
-echo "Listo. Para el MCP: abre Claude Code en el repo de la app (tiene .mcp.json),"
-echo "o regístralo a mano: claude mcp add hertzbench -- hertzbench mcp --workspace <carpeta>"
+echo "Listo. Reinicia VS Code / Claude Code y aprueba el MCP 'hertzbench' del .mcp.json."
+echo "Luego abre Android Studio una vez (asistente Standard) para descargar el SDK."
 echo "Log: $LOG"

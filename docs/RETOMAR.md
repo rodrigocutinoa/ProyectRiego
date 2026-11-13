@@ -10,11 +10,11 @@ Notas de la última sesión para seguir sin perder contexto, en este Mac o en ot
   1. Un error de compilación con el Deno de Homebrew.
   2. La prueba del puente MQTT en macOS. Le falta la parte del emulador Android, que es lo que pidió el profesor en el #57.
 - **Aún no hay código Android.** El repo de la app (`RiegoIoT-App`) no está creado.
-- **Android Studio quedó instalado en la M2 de 16 GB** (`brew install --cask android-studio`), pero todavía no se ha abierto, así que falta descargar el SDK y crear el emulador. Ver el paso 4 de la sección 5.
+- **Android Studio se instaló en la M2 de 16 GB, pero ese Mac ya no se usa.** En el Mac nuevo lo instala `preparar-mac.sh`; después falta abrirlo para descargar el SDK y crear el emulador.
 
 ## 0. Retomar en otro Mac
 
-Lo que vive en git (este repo): los escenarios, los scripts, los reportes y las notas. Lo que **no** está en git y hay que preparar en cada Mac: el binario de hertzbench, el registro del MCP, Android Studio y el SDK.
+**La MacBook Air M2 de 16 GB ya no se usa** (2026-11-13). Lo que se hizo ahí quedó en git; en el Mac nuevo hay que volver a preparar lo que no vive en el repo: el binario de hertzbench, Deno, mosquitto y Android Studio con su SDK.
 
 ```bash
 # 1. Repo y guía del profesor
@@ -22,20 +22,21 @@ git clone https://github.com/rodrigocutinoa/ProyectRiego.git ~/Dev/Inacap/AppIoT
 cd ~/Dev/Inacap/AppIoT/ProyectRiego
 # copiar la guía del profesor a _Document/ (no se sube)
 
-# 2. hertzbench: instala Deno y mosquitto, clona hertzbench al lado del repo,
-#    compila el binario para este Mac, lo enlaza en ~/.local/bin y prueba el puente
+# 2. Todo lo demás en un paso: Deno, mosquitto, hertzbench (clonar, compilar,
+#    enlazar en ~/.local/bin), prueba del puente MQTT y Android Studio
 hertzbench/preparar-mac.sh
 
-# 3. Registrar el MCP en Claude Code (después reiniciar Claude Code)
-claude mcp add hertzbench -- hertzbench mcp --workspace "$PWD"
-
-# 4. Android Studio
-brew install --cask android-studio
+# 3. Abrir el proyecto
+code ~/Dev/Inacap/AppIoT/ProyectRiego
 ```
 
-- **El script `preparar-mac.sh` sirve para Apple Silicon e Intel,** y se puede repetir: actualiza hertzbench y vuelve a compilar. Si `~/.local/bin` no está en el PATH, el script avisa cómo agregarlo.
+- **El MCP se carga solo.** El archivo [.mcp.json](../.mcp.json) del repo registra `hertzbench mcp --workspace .`. Al abrir Claude Code en la carpeta, hay que aprobar el servidor `hertzbench` la primera vez. Para comprobarlo se usa `/mcp`. Solo funciona si `hertzbench` está en el PATH, lo que deja listo el paso 2.
+- **Android Studio:** se abre una vez (`open -a "Android Studio"`), se elige el asistente **Standard** y se aceptan las licencias, para descargar el SDK (unos 3 GB). Después se crea un solo emulador arm64.
+- **Primer mensaje a Claude Code:** *"lee docs/RETOMAR.md y sigamos"*.
+- **El script se puede repetir.** Sirve para Apple Silicon e Intel: actualiza hertzbench y vuelve a compilar. `SIN_ANDROID_STUDIO=1` omite Android Studio. Si `~/.local/bin` no está en el PATH, el script avisa cómo agregarlo.
 - **Si algo falla,** el log queda en `hertzbench/logs/preparar_<fecha>.log` y los de la prueba del puente en `hertzbench/logs/<fecha>/`. La carpeta `logs/` no se sube porque tiene rutas locales. Con esos logs se escribe el reporte en `hertzbench/reportes/`, en el mismo formato de los que ya están.
 - **Un Mac Intel** usaría `hertzbench-macos-x64`, que la comunidad todavía no ha probado. Si funciona, vale la pena reportarlo.
+- **Para enviar los reportes a hertzbench** hace falta `gh` con sesión iniciada (`brew install gh && gh auth login`).
 - **Para probar el puente a mano:** `hertzbench/probar-puente.sh [escenario] [segundos]`.
 
 ## 1. Decisiones
@@ -45,7 +46,7 @@ brew install --cask android-studio
 | 1 | Descargar hertzbench y registrarlo como MCP | **Hecho** (2026-11-13), compilado desde el código fuente |
 | 2 | Nodo de riego: rol de la app o ESP32 simulado | Rol de la app (el ESP32 en Mac no está probado, issue #54). Mientras no exista la app, el nodo es scripted en `riego-mqtt.yaml` |
 | 3 | Dónde va el código Android | **Un repo aparte por persona**, porque la evaluación es individual; ProyectRiego queda como repo común. Nombre propuesto `RiegoIoT-App`; falta confirmarlo y crearlo en GitHub |
-| 4 | Quién instala Android Studio | Instalado por Claude en la M2 de 16 GB (2026-11-13); ustedes en la ASUS y la MacBook Pro |
+| 4 | Quién instala Android Studio | `preparar-mac.sh` en cualquier Mac; ustedes en la ASUS |
 
 **Repo de la app (cuando se cree):**
 - Proyecto en la raíz del repo, con minSdk 26, Kotlin DSL y Compose.
@@ -102,7 +103,7 @@ Después de eso: instalar `sshd` en la máquina virtual, copiar la llave públic
 
 ## 5. Orden sugerido para la próxima sesión
 
-1. En un Mac nuevo, seguir la sección 0.
+1. En el Mac nuevo, seguir la sección 0.
 2. ~~Instalar hertzbench y registrar el MCP.~~ Hecho el 2026-11-13.
 3. ~~Crear un escenario con un broker MQTT simulado y el puente expuesto en `1883`.~~ Hecho el 2026-11-13: [hertzbench/riego-mqtt.yaml](../hertzbench/riego-mqtt.yaml).
 4. Terminar de preparar Android Studio: abrirlo una vez para que descargue el SDK, y crear un emulador (una sola imagen arm64, 2 GB de RAM).
