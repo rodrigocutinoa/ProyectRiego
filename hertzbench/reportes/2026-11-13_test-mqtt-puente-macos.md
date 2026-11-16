@@ -1,8 +1,6 @@
 # Test report: MQTT over the IP bridge on macOS arm64 (host client) — PASS
 
-Borrador de *test report* para hertzbench. Estado: **sin enviar**. Falta la parte del emulador
-Android por `10.0.2.2:1883`, que es lo que pidió el profesor en el #57. Se puede enviar junto con
-esa prueba o por separado.
+*Test report* para hertzbench. Estado: **enviado** el 2026-11-16 como [#110](https://github.com/Rixmerz/hertzbench/issues/110), ya con la prueba desde el emulador Android por `10.0.2.2:1883` (PASS en ambos sentidos, con paquetes MQTT enviados con `nc` desde el emulador). Este archivo es el borrador original del 2026-11-13; el texto enviado está en el issue.
 
 **English**
 

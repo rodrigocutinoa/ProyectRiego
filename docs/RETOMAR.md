@@ -1,4 +1,4 @@
-# Retomar desde aquí (2026-11-13)
+# Retomar desde aquí (2026-11-16)
 
 > **Para seguir en el Mac nuevo:**
 >
@@ -14,6 +14,12 @@
 Notas de la última sesión para seguir sin perder contexto, en este Mac o en otro. El detalle completo está en [EVA2_AVANCE.md](EVA2_AVANCE.md).
 
 ## Dónde quedamos
+
+- **2026-11-16: se sigue en la MacBook Air M2 de 24 GB.** Está todo instalado: hertzbench (`7f5bd4ae`, MCP conectado), Android Studio con el SDK y el emulador `Medium_Phone_API_37.0` (Android 17, arm64). Los dos reportes ya se enviaron al profesor: [#109](https://github.com/Rixmerz/hertzbench/issues/109) y [#110](https://github.com/Rixmerz/hertzbench/issues/110), este último con la prueba MQTT desde el emulador por `10.0.2.2:1883` (PASS).
+- **Siguiente paso:** crear `RiegoIoT-App` (nombre confirmado, repo público) con el asistente de Android Studio: Empty Activity, minSdk 26, Kotlin DSL, en `~/Dev/Inacap/AppIoT/RiegoIoT-App`. Luego `.mcp.json`, `CLAUDE.md`, correrlo en el emulador y subirlo a GitHub.
+
+Lo que sigue es de la sesión del 2026-11-13:
+
 
 - **hertzbench funciona en la MacBook Air M2 de 16 GB** (Mac14,2, SSD de 256 GB, macOS 27.0.1). No es la M2 de 24 GB de las notas de equipos. Se compiló desde el código fuente (commit `19847355`) y quedó registrado como MCP en Claude Code.
 - **El puente MQTT está probado.** El escenario [hertzbench/riego-mqtt.yaml](../hertzbench/riego-mqtt.yaml) tiene un broker simulado, un nodo de riego simulado y el puente en `127.0.0.1:1883`. Se probó con mosquitto desde el Mac en los dos sentidos: PASS.
@@ -117,8 +123,8 @@ Después de eso: instalar `sshd` en la máquina virtual, copiar la llave públic
 1. En el Mac nuevo, seguir la sección 0.
 2. ~~Instalar hertzbench y registrar el MCP.~~ Hecho el 2026-11-13.
 3. ~~Crear un escenario con un broker MQTT simulado y el puente expuesto en `1883`.~~ Hecho el 2026-11-13: [hertzbench/riego-mqtt.yaml](../hertzbench/riego-mqtt.yaml).
-4. Terminar de preparar Android Studio: abrirlo una vez para que descargue el SDK, y crear un emulador (una sola imagen arm64, 2 GB de RAM).
-5. Confirmar el nombre `RiegoIoT-App`, crear el repo y el proyecto con su `.mcp.json`.
+4. ~~Terminar de preparar Android Studio y crear el emulador.~~ Hecho el 2026-11-16 en la M2 de 24 GB.
+5. ~~Confirmar el nombre `RiegoIoT-App`~~ (confirmado el 2026-11-16, público). Crear el repo y el proyecto con su `.mcp.json`.
 6. Implementar el login y la notificación cuando el riego se enciende o se apaga. Probar en el emulador por `10.0.2.2:1883` con `riego-mqtt.yaml` corriendo.
-7. Completar el reporte del puente con la prueba del emulador y enviar los dos reportes a hertzbench. Antes hay que instalar `gh` (`brew install gh`) y aprobar el envío, porque se publican con la cuenta de Rodrigo.
+7. ~~Completar y enviar los dos reportes a hertzbench.~~ Enviados el 2026-11-16: #109 y #110.
 8. Resolver OpenSSH y el acceso directo a la máquina virtual (secciones 2 y 3), si siguen haciendo falta.

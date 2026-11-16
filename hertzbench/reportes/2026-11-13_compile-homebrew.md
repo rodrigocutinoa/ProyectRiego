@@ -1,6 +1,6 @@
 # Bug: `deno task compile` fails with Homebrew's Deno (NotCapable on `Deno.execPath()`)
 
-Borrador de issue para hertzbench. Estado: **sin enviar**.
+Issue para hertzbench. Estado: **enviado** el 2026-11-16 como [#109](https://github.com/Rixmerz/hertzbench/issues/109) (reproducido también en `7f5bd4ae`).
 
 **English**
 
