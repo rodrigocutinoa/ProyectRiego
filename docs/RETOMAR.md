@@ -125,7 +125,7 @@ Después de eso: instalar `sshd` en la máquina virtual, copiar la llave públic
 2. ~~Instalar hertzbench y registrar el MCP.~~ Hecho el 2026-11-13.
 3. ~~Crear un escenario con un broker MQTT simulado y el puente expuesto en `1883`.~~ Hecho el 2026-11-13: [hertzbench/riego-mqtt.yaml](../hertzbench/riego-mqtt.yaml).
 4. ~~Terminar de preparar Android Studio y crear el emulador.~~ Hecho el 2026-11-16 en la M2 de 24 GB.
-5. ~~Confirmar el nombre `RiegoIoT-App`, crear el repo~~ Hecho el 2026-11-16. Crear el repo y el proyecto con su `.mcp.json`.
+5. ~~Confirmar el nombre `RiegoIoT-App`, crear el repo y el proyecto con su `.mcp.json`.~~ Hecho el 2026-11-16.
 6. Implementar el login y la notificación cuando el riego se enciende o se apaga. Probar en el emulador por `10.0.2.2:1883` con `riego-mqtt.yaml` corriendo.
 7. ~~Completar y enviar los dos reportes a hertzbench.~~ Enviados el 2026-11-16: #109 y #110.
 8. Resolver OpenSSH y el acceso directo a la máquina virtual (secciones 2 y 3), si siguen haciendo falta.
