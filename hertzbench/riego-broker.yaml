@@ -1,0 +1,39 @@
+# ProyectRiego (EVA2): solo el broker MQTT simulado y el puente en el puerto 1883.
+#
+# Para probar RiegoIoT-App con dos emuladores: uno con el rol «Nodo de riego» y
+# otro con el rol «Panel», ambos conectados a tcp://10.0.2.2:1883. No hay nodo
+# scripted, así que todo el tráfico de riego/* viene de la app.
+# Con nodo simulado (un solo emulador, rol Panel): usar riego-mqtt.yaml.
+#
+# monitor: un cliente scripted suscrito a riego/# (hertzbench pide al menos 2
+# placas); su serial muestra todo el tráfico, para revisarlo con get_serial.
+#
+# El canal Wi-Fi simulado está entre el broker y el puente (phone): con
+# inject_fault sobre "phone->*" y "*->phone" se corta el enlace de los dos emuladores.
+name: riego-broker
+seed: 42
+duration: 30m
+environment:
+  preset: indoor_office
+  shadowing_sigma_db: 0
+nodes:
+  - id: broker
+    board: scripted
+    position: [0, 0]
+    radios: [{ phy: wifi, channel: 6 }]
+    firmware:
+      serve:
+        - { port: 1883, protocol: mqtt }
+  - id: monitor
+    board: scripted
+    position: [2, -2]
+    radios: [{ phy: wifi, channel: 6 }]
+    firmware:
+      subscribe:
+        - { to: broker, topic: "riego/#" }
+bridge:
+  id: phone
+  position: [5, 3]
+  listen: 127.0.0.1
+  expose:
+    - { node: broker, port: 1883, service: mqtt, listen_port: 1883 }
