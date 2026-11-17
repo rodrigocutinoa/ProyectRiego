@@ -53,7 +53,7 @@ wait $PID; echo "exit hertzbench: $?" >> "$LOG/entorno.txt"
 wait $SUB 2>/dev/null
 
 grep -q "riego/lectura LECTURA;suelo;" "$LOG/mqtt-sub.txt" && ok "el host recibe riego/lectura" || falla "el host no recibió riego/lectura"
-grep -q "riego/estado " "$LOG/mqtt-sub.txt" && ok "el host recibe riego/estado" || falla "el host no recibió riego/estado"
+grep -q "^riego/estado/" "$LOG/mqtt-sub.txt" && ok "el host recibe riego/estado" || falla "el host no recibió riego/estado"
 grep -q "riego/cmd CMD;bomba;ON" "$LOG/mqtt-sub.txt" && ok "el host ve su propio riego/cmd" || falla "el host no vio riego/cmd"
 grep -q "mqtt rx riego/cmd CMD;bomba;ON" "$LOG/out"/serial-nodo-riego.log 2>/dev/null \
   && ok "nodo-riego recibe el comando del host" || falla "nodo-riego no recibió el comando del host"

@@ -10,7 +10,7 @@
 #
 # Mensajes (RiegoIoT-App/docs/HITOS_1_2.md, sección 2.2):
 #   riego/lectura  LECTURA;suelo;<n> · LECTURA;temp;<x.x>   nodo -> panel
-#   riego/estado   ESTADO;bomba;ON|OFF · ESTADO;modo;...     nodo -> panel
+#   riego/estado/<clave>  ESTADO;bomba;ON|OFF · ESTADO;modo;... (retenido)  nodo -> panel
 #   riego/cmd      CMD;bomba;ON|OFF · CMD;modo;AUTO · ...    panel -> nodo
 #   riego/ack      ACK;bomba;ON|OFF                          nodo -> panel
 # El nodo scripted no responde ACK ni cambia de estado con los comandos:
@@ -45,7 +45,7 @@ nodes:
           topic: riego/lectura
           every: 5s
           payload: ["LECTURA;suelo;42", "LECTURA;temp;24.5", "LECTURA;suelo;33", "LECTURA;temp;25.1", "LECTURA;suelo;29", "LECTURA;temp;25.8", "LECTURA;suelo;61", "LECTURA;temp;24.9"]
-        - { to: broker, via: mqtt, topic: riego/estado, every: 15s, payload: ["ESTADO;bomba;OFF", "ESTADO;bomba;ON"] }
+        - { to: broker, via: mqtt, topic: riego/estado/bomba, every: 15s, payload: ["ESTADO;bomba;OFF", "ESTADO;bomba;ON"] }
       subscribe:
         - { to: broker, topic: riego/cmd }
 bridge:
@@ -57,4 +57,4 @@ bridge:
 assertions:
   - serial: { node: broker, contains: "mqtt connect nodo-riego", within: 5s }
   - serial: { node: broker, contains: 'mqtt publish riego/lectura "LECTURA;suelo;42" from nodo-riego', within: 10s }
-  - serial: { node: broker, contains: 'mqtt publish riego/estado "ESTADO;bomba;OFF" from nodo-riego', within: 10s }
+  - serial: { node: broker, contains: 'mqtt publish riego/estado/bomba "ESTADO;bomba;OFF" from nodo-riego', within: 10s }
