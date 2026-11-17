@@ -14,6 +14,8 @@ App Android (Kotlin y Jetpack Compose) para el sistema de riego de la Unidad 1. 
 - Recibir una notificación cada vez que el riego se enciende o se apaga.
 - Encender o apagar la bomba y cambiar el modo y el umbral a distancia.
 - Pasar a un estado seguro, con la bomba apagada, si se corta el enlace.
+- Consultar el historial de lecturas y de encendidos y apagados de la bomba.
+- Cifrar los mensajes con AES-GCM y un código de vinculación, y rechazar los que no estén cifrados o hayan sido alterados.
 
 El lado IoT se simula con hertzbench, conectado por MCP: broker MQTT, canal Wi-Fi y fallas.
 

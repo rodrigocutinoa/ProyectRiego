@@ -13,6 +13,7 @@
 #   riego/estado/<clave>  ESTADO;bomba;ON|OFF · ESTADO;modo;... (retenido)  nodo -> panel
 #   riego/cmd      CMD;bomba;ON|OFF · CMD;modo;AUTO · ...    panel -> nodo
 #   riego/ack      ACK;bomba;ON|OFF                          nodo -> panel
+# Desde el Hito 4 los mensajes van cifrados con AES-GCM (código de vinculación 123456).
 # El nodo scripted no responde ACK ni cambia de estado con los comandos:
 # solo genera tráfico. La lógica real del nodo vive en la app (rol Nodo).
 #
@@ -44,8 +45,16 @@ nodes:
           via: mqtt
           topic: riego/lectura
           every: 5s
-          payload: ["LECTURA;suelo;42", "LECTURA;temp;24.5", "LECTURA;suelo;33", "LECTURA;temp;25.1", "LECTURA;suelo;29", "LECTURA;temp;25.8", "LECTURA;suelo;61", "LECTURA;temp;24.9"]
-        - { to: broker, via: mqtt, topic: riego/estado/bomba, every: 15s, payload: ["ESTADO;bomba;OFF", "ESTADO;bomba;ON"] }
+          payload:
+            # cifrados con hertzbench/cifrar.ts y el código 123456; en claro:
+            # LECTURA;suelo;42 · LECTURA;temp;24.5 · LECTURA;suelo;33 · LECTURA;temp;25.1 · LECTURA;suelo;29 · LECTURA;temp;25.8 · LECTURA;suelo;61 · LECTURA;temp;24.9
+            ["VogJhTBwzFlybVnNZL3nFQdkLDgKPiMz9AahuQApChkMYX3l/7YlcyaYUlGqpQNRB0KVnGdArxZxJQ==", "FQcb5uZlgfTrcfbG3dihxk+bhOO0VNDBOl17kQFYZJi3hkJkNlepWAh2fhKgmSIJd/UmIeYskth548E=", "tqP/cUChJhKWp7sOGHBoJorGu+96iTd7kIPxuxIEEsb0oMBDCw5jdkeKYdvs9D5gho2bEXmzII1KTQ==", "bOKVyG23lncIwXX6A2Hvefr8jlE8TOASKOztbNAD8ZFe4WcseDidIAeMHI68Hn1lbpEm0HiXFO1KEg4=", "hktvEWGnZqdrlKO3LdUJpZAQBrQXYHyTgnroASI0Af2gKXNXSrR9ie664dNT9qvMdfznuyQIQWeHDA==", "Uid0zPcSxnssxRtyPD9AJIkSYDXcsGjzJ7GIrwZ6x+dvsip5A5MHmNjb2Kc6OvfQB/L2pEjXFy/vtWI=", "tNgIqjkNCG/rGmsCve+U7CGSkSl0/zBA2d79Q8AGcm/8OthiVKz4yGgUUp/b10hMTxlNVlBv+LdJ0Q==", "6DuEusbRazXBVFA0AYE1H3ZtAQka9lwlvgZG2VU6flTWYj794J6qCjjkUPTY3DUIzqnLnVQFiLJcfJk="]
+        - to: broker
+          via: mqtt
+          topic: riego/estado/bomba
+          every: 15s
+          # cifrados: ESTADO;bomba;OFF · ESTADO;bomba;ON
+          payload: ["FQh4K93kSCU4mmuH8W6qan2cnY3j1+EDe187B8xMAj0+PDgW8WGPyILAdRrHEb3zFSHp7LRE/y1bAQ==", "BBbK8i6GMbfrpf9vQiiWLffkC3mN0BYw4mgps4XBmhDEb8ermGSeF4fZeQgUEPysrFZdRpBadIjV"]
       subscribe:
         - { to: broker, topic: riego/cmd }
 bridge:
@@ -56,5 +65,5 @@ bridge:
     - { node: broker, port: 1883, service: mqtt, listen_port: 1883 }
 assertions:
   - serial: { node: broker, contains: "mqtt connect nodo-riego", within: 5s }
-  - serial: { node: broker, contains: 'mqtt publish riego/lectura "LECTURA;suelo;42" from nodo-riego', within: 10s }
-  - serial: { node: broker, contains: 'mqtt publish riego/estado/bomba "ESTADO;bomba;OFF" from nodo-riego', within: 10s }
+  - serial: { node: broker, contains: 'mqtt publish riego/lectura "VogJhTBwzFlybVnNZL3nFQdkLDgKPiMz9AahuQApChkMYX3l/7YlcyaYUlGqpQNRB0KVnGdArxZxJQ==" from nodo-riego', within: 10s }
+  - serial: { node: broker, contains: 'mqtt publish riego/estado/bomba "FQh4K93kSCU4mmuH8W6qan2cnY3j1+EDe187B8xMAj0+PDgW8WGPyILAdRrHEb3zFSHp7LRE/y1bAQ==" from nodo-riego', within: 10s }
