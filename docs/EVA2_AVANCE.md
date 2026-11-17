@@ -13,7 +13,7 @@ La guía de la unidad es *"Guía de desarrollo — Unidad 2 · App Android para 
   1. **Autenticación con login.**
   2. **Alerta y estado del riego.** Cuando el riego se enciende o se apaga, la app muestra una notificación y el estado actual.
 - La simulación del lado IoT se hace con **[hertzbench](https://github.com/Rixmerz/hertzbench)**, conectado a Claude Code por MCP.
-- **La evaluación es individual.** Cada estudiante construye, sube a su propio GitHub y entrega su propia app.
+- La guía dice que la evaluación es individual, pero **la EVA2 se hace en pareja**, Jenniffer Gonzalez y Rodrigo Cutiño (confirmado el 2026-11-17; Rodrigo lo aclara con el profesor).
 
 ### Hitos de la guía
 
@@ -81,7 +81,7 @@ Issues en el repo del profesor (en inglés y español). #54, #55 y #56 siguen ab
 
 - [x] Compilar hertzbench y registrarlo como MCP (2026-11-13, M2 de 16 GB, ver la sección 5).
 - [ ] Confirmar que el nodo de riego sea un rol de la misma app, y no un ESP32 simulado. Mientras tanto, el nodo es scripted en `hertzbench/riego-mqtt.yaml`.
-- [x] Dónde va el código Android: **un repo aparte por persona** (la evaluación es individual). Falta confirmar el nombre `RiegoIoT-App` y crearlo.
+- [x] Dónde va el código Android: repo aparte, [RiegoIoT-App](https://github.com/rodrigocutinoa/RiegoIoT-App), que es de la pareja (al principio se pensó uno por persona porque la guía dice individual).
 - [x] Instalar Android Studio en la M2 de 16 GB (2026-11-13). Falta abrirlo para descargar el SDK y crear el emulador.
 
 ## 5. Preparar una máquina nueva

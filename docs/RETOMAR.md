@@ -65,7 +65,7 @@ code ~/Dev/Inacap/AppIoT/ProyectRiego
 |---|---|---|
 | 1 | Descargar hertzbench y registrarlo como MCP | **Hecho** (2026-11-13), compilado desde el código fuente |
 | 2 | Nodo de riego: rol de la app o ESP32 simulado | Rol de la app (el ESP32 en Mac no está probado, issue #54). Mientras no exista la app, el nodo es scripted en `riego-mqtt.yaml` |
-| 3 | Dónde va el código Android | **Un repo aparte por persona**, porque la evaluación es individual; ProyectRiego queda como repo común. Nombre propuesto `RiegoIoT-App`; falta confirmarlo y crearlo en GitHub |
+| 3 | Dónde va el código Android | Repo aparte, **`RiegoIoT-App`**, de la pareja (Jenniffer y Rodrigo; la EVA2 es en pareja, confirmado el 2026-11-17). ProyectRiego queda como repo común |
 | 4 | Quién instala Android Studio | `preparar-mac.sh` en cualquier Mac; ustedes en la ASUS |
 
 **Repo de la app (cuando se cree):**
