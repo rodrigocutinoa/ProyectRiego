@@ -1,4 +1,4 @@
-# Retomar desde aquí (2026-11-16)
+# Retomar desde aquí (2026-11-17)
 
 > **Para seguir en el Mac nuevo:**
 >
@@ -12,6 +12,37 @@
 > Al abrir Claude Code, aprobar el servidor `hertzbench` y escribirle: *"lee docs/RETOMAR.md y sigamos"*.
 
 Notas de la última sesión para seguir sin perder contexto, en este Mac o en otro. El detalle completo está en [EVA2_AVANCE.md](EVA2_AVANCE.md).
+
+## Para continuar (sesión cerrada el 2026-11-17)
+
+**Estado al cerrar:** emuladores apagados, hertzbench detenido y los dos repos sincronizados con GitHub (ProyectRiego `606bad5`, RiegoIoT-App `16cb050`). La app tiene los Hitos 0 a 6 y README con capturas. Faltan los Hitos 7 y 8, que se consultan con el profesor.
+
+**Pendientes, en orden:**
+1. Rodrigo: presionar **«Enviar tarea»** en el AAI con `~/Desktop/RiegoIoT-App_Gonzalez_Cutino.txt` (también hay un zip en el Escritorio).
+2. Rodrigo, con el profesor: qué espera del Hito 7 (ISO/IEC 27400 y OT, pruebas P1–P14) y de la demostración (Hito 8); si espera un ESP32 emulado (en macOS no corre); confirmar que es en pareja con Jenniffer.
+3. Revisar las respuestas del profesor en hertzbench #114, #115 y #116 y en el issue #1 de RiegoIoT-App (`gh issue view <n> -R Rixmerz/hertzbench --comments`).
+4. Según lo que diga: Hito 7 (tabla de pruebas con capturas, medidas ISO/OT en el README) y guion de la demo.
+5. Opcional: probar en el emulador el rechazo de comandos de más de 30 s (con `cifrar.ts` y esperar 31 s antes de `mqtt_publish`).
+
+**Cómo levantar todo de nuevo:**
+
+```bash
+# Emulador (SIN -read-only: así la app, las cuentas y el historial se conservan)
+~/Library/Android/sdk/emulator/emulator -avd Medium_Phone_API_37.0 &
+# App
+cd ~/Dev/Inacap/AppIoT/RiegoIoT-App
+JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home" ./gradlew installDebug
+```
+
+- En esta sesión el emulador corrió con `-read-only`, así que **al apagarlo se perdieron la app instalada, las cuentas y el historial**. Hay que reinstalar y crear las cuentas de nuevo. La primera queda como operador y la segunda como observador.
+- **Código de vinculación de la demo: `123456`**, el mismo que usa el nodo simulado de `riego-mqtt.yaml`. Broker `10.0.2.2`, puerto `1883`.
+- **Escenarios:** desde Claude Code, *«corre hertzbench/riego-mqtt.yaml»* (nodo simulado, para probar el Panel) o `riego-broker.yaml` (broker y monitor, para la app como Nodo). Los comandos cifrados para `mqtt_publish` se generan con `deno run hertzbench/cifrar.ts 123456 riego/cmd "CMD;bomba;ON"`.
+- **El MCP usa el binario de hertzbench `7f5bd4ae`.** El repo de hertzbench ya está en `d5274ddc` (v0.4.1, con el arreglo del #109). Para usarlo: `hertzbench/preparar-mac.sh` y reiniciar VS Code.
+- **Trucos del emulador** (detalle en el `CLAUDE.md` de la app):
+  - No usar `uiautomator dump`, porque se cuelga; tocar por coordenadas a partir de capturas.
+  - Escribir de a una letra con `adb shell input text`, porque el teclado se come caracteres.
+  - Dos emuladores a la vez dejan al Mac sin memoria.
+  - PBKDF2 tarda entre 10 y 15 s en el emulador, en el login y al conectar.
 
 ## Dónde quedamos
 
