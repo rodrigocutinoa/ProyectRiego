@@ -20,7 +20,8 @@ Notas de la última sesión para seguir sin perder contexto, en este Mac o en ot
 - **Hito 0 terminado.** Rodrigo no tiene teléfono Android (solo iPhone) y el docente autorizó usar el emulador.
 - **Hitos 1 y 2 escritos** (2026-11-16) en [RiegoIoT-App/docs/HITOS_1_2.md](https://github.com/rodrigocutinoa/RiegoIoT-App/blob/main/docs/HITOS_1_2.md). Decisiones aprobadas: Paho, una app con roles Nodo y Panel, mensajes `ESTADO;bomba;ON` con `riego/ack`.
 - **2026-11-17: Hito 3 funcionando** en RiegoIoT-App. Los pendientes del profesor (issue #1) están en el `CLAUDE.md` de la app, en orden.
-- **Siguiente paso:** punto 3 del profesor, el login con roles (Hito 5), y el punto 4, completar el modo seguro (confirmación con reenvío, estado retenido). Rodrigo debe presionar «Enviar tarea» en el AAI y aclarar con el profesor que es en pareja y si espera un ESP32 emulado.
+- **2026-11-17: Hitos 5 y 6, punto 4 y README listos** en RiegoIoT-App.
+- **Siguiente paso:** Hitos 4 y 7 (cifrado de los mensajes, ISO/IEC 27400 y OT, pruebas P1–P14) y la demostración. Publicar los reportes de `hertzbench/reportes/2026-11-17_*` cuando Rodrigo los apruebe. Rodrigo debe presionar «Enviar tarea» en el AAI y aclarar con el profesor que es en pareja y si espera un ESP32 emulado.
 
 Lo que sigue es de la sesión del 2026-11-13:
 
