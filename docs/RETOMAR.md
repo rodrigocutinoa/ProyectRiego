@@ -19,7 +19,7 @@ Notas de la última sesión para seguir sin perder contexto, en este Mac o en ot
 - **App creada (Hito 0):** [RiegoIoT-App](https://github.com/rodrigocutinoa/RiegoIoT-App), en `~/Dev/Inacap/AppIoT/RiegoIoT-App`, corre en el emulador. Para trabajar en la app, abrir VS Code en esa carpeta (`code ~/Dev/Inacap/AppIoT/RiegoIoT-App`); su `CLAUDE.md` tiene el estado.
 - **Hito 0 terminado.** Rodrigo no tiene teléfono Android (solo iPhone) y el docente autorizó usar el emulador.
 - **Hitos 1 y 2 escritos** (2026-11-16) en [RiegoIoT-App/docs/HITOS_1_2.md](https://github.com/rodrigocutinoa/RiegoIoT-App/blob/main/docs/HITOS_1_2.md). Decisiones aprobadas: Paho, una app con roles Nodo y Panel, mensajes `ESTADO;bomba;ON` con `riego/ack`.
-- **Siguiente paso:** mostrarle los Hitos 1 y 2 al docente y anotar su retroalimentación; luego el Hito 3 (permisos, conexión MQTT, datos, comandos y notificaciones). Antes, ~~preparar los Hitos 1 y 2 (problemática, medio inalámbrico justificado, mensajes y mockup), que revisa el docente antes de programar.~~
+- **Siguiente paso:** mostrarle los Hitos 1 y 2 al docente y anotar su retroalimentación; luego el Hito 3 (permisos, conexión MQTT, datos, comandos y notificaciones).
 
 Lo que sigue es de la sesión del 2026-11-13:
 
