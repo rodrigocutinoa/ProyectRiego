@@ -1,6 +1,6 @@
 # Bug: `deno task compile` fails with Homebrew's Deno (NotCapable on `Deno.execPath()`)
 
-Issue para hertzbench. Estado: **enviado** el 2026-11-16 como [#109](https://github.com/Rixmerz/hertzbench/issues/109) (reproducido también en `7f5bd4ae`).
+Issue para hertzbench. Estado: **enviado** el 2026-11-16 como [#109](https://github.com/Rixmerz/hertzbench/issues/109) (reproducido también en `7f5bd4ae`). **Corregido** en el PR [#111](https://github.com/Rixmerz/hertzbench/pull/111); confirmado en la M2 de 24 GB con `c565ba41` el 2026-11-16.
 
 **English**
 
