@@ -1,6 +1,6 @@
 # Mejora: broker MQTT con keep-alive, Last Will y sesión duplicada
 
-Borrador para hertzbench. Estado: **sin enviar** (2026-11-17).
+Estado: **enviado** el 2026-11-17 como [#115](https://github.com/Rixmerz/hertzbench/issues/115).
 Título: MQTT broker: keep-alive expiry, will message and client-id takeover / keep-alive, Last Will y sesión duplicada
 
 ---

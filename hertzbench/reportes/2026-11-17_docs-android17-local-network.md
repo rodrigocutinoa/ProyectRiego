@@ -1,6 +1,6 @@
 # Docs: Android 17 necesita ACCESS_LOCAL_NETWORK
 
-Borrador para hertzbench. Estado: **sin enviar** (2026-11-17).
+Estado: **enviado** el 2026-11-17 como [#114](https://github.com/Rixmerz/hertzbench/issues/114).
 Título: Docs: Android 17 apps need ACCESS_LOCAL_NETWORK to reach the bridge at 10.0.2.2 / Android 17 necesita el permiso ACCESS_LOCAL_NETWORK
 
 ---

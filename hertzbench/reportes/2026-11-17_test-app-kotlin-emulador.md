@@ -1,6 +1,6 @@
 # Test report: app Kotlin/Compose en el emulador Android 17
 
-Borrador para hertzbench. Estado: **sin enviar** (2026-11-17).
+Estado: **enviado** el 2026-11-17 como [#116](https://github.com/Rixmerz/hertzbench/issues/116).
 Título: [test report] Kotlin/Compose app (Paho MQTT) in the Android 17 emulator through the IP bridge (#110)
 
 ---
