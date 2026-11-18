@@ -19,7 +19,7 @@ Notas de la última sesión para seguir sin perder contexto, en este Mac o en ot
 - **El emulador ya no corre con `-read-only`:** la app, las cuentas (`rodrigo` operador, `jenniffer` observadora, contraseña de prueba conocida por Rodrigo) y el historial se conservan.
 - **Siguiente:** el guion de la demostración (Hito 8, guía página 32). Después, enviar la tarea en el AAI con el `.txt` y avisar al profesor en el issue #1 que el Hito 7 está listo.
 
-## Antes (sesión (sesión del 2026-11-18)
+## Antes de las pruebas (sesión del 2026-11-18)
 
 **El profesor dice que falta el Hito 7** (seguridad ISO/IEC 27400 y OT, pruebas P1–P14; guía, páginas 25 y 30–31).
 
