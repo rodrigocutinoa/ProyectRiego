@@ -13,6 +13,15 @@
 
 Notas de la última sesión para seguir sin perder contexto, en este Mac o en otro. El detalle completo está en [EVA2_AVANCE.md](EVA2_AVANCE.md).
 
+## Para continuar (sesión del 2026-11-18)
+
+**El profesor dice que falta el Hito 7** (seguridad ISO/IEC 27400 y OT, pruebas P1–P14; guía, páginas 25 y 30–31).
+
+- **Hecho:** tabla de medidas de seguridad y límites declarados en el README de RiegoIoT-App, y `usesCleartextTraffic="false"` ([65bffe3](https://github.com/rodrigocutinoa/RiegoIoT-App/commit/65bffe3)). Pruebas unitarias: PASS.
+- **Siguiente:** pruebas P1–P14 en el emulador, con una captura cada una, y su tabla en el README. La adaptación a MQTT y bomba está en el `CLAUDE.md` de la app (fila del Hito 7). Después, el guion de la demo (Hito 8).
+- **Seguir en la ventana de la app**, que es la que carga el MCP de hertzbench: `code ~/Dev/Inacap/AppIoT/RiegoIoT-App` y escribirle *«lee ../ProyectRiego/docs/RETOMAR.md y sigamos con las pruebas P1–P14»*.
+- Primero hay que reinstalar la app y crear las cuentas de nuevo (el emulador corrió con `-read-only`). Eso mismo sirve para P8.
+
 ## Para continuar (sesión cerrada el 2026-11-17)
 
 **Estado al cerrar:** emuladores apagados, hertzbench detenido y los dos repos sincronizados con GitHub (ProyectRiego `606bad5`, RiegoIoT-App `16cb050`). La app tiene los Hitos 0 a 6 y README con capturas. Faltan los Hitos 7 y 8, que se consultan con el profesor.
