@@ -13,7 +13,13 @@
 
 Notas de la última sesión para seguir sin perder contexto, en este Mac o en otro. El detalle completo está en [EVA2_AVANCE.md](EVA2_AVANCE.md).
 
-## Para continuar (sesión del 2026-11-18)
+## Para continuar (2026-11-18, después de las pruebas)
+
+- **Hito 7 listo:** pruebas P1–P14 en el emulador, 14 de 14 pasan, con captura cada una y tabla en el README de RiegoIoT-App ([d26f4b2](https://github.com/rodrigocutinoa/RiegoIoT-App/commit/d26f4b2)).
+- **El emulador ya no corre con `-read-only`:** la app, las cuentas (`rodrigo` operador, `jenniffer` observadora, contraseña de prueba conocida por Rodrigo) y el historial se conservan.
+- **Siguiente:** el guion de la demostración (Hito 8, guía página 32). Después, enviar la tarea en el AAI con el `.txt` y avisar al profesor en el issue #1 que el Hito 7 está listo.
+
+## Antes (sesión (sesión del 2026-11-18)
 
 **El profesor dice que falta el Hito 7** (seguridad ISO/IEC 27400 y OT, pruebas P1–P14; guía, páginas 25 y 30–31).
 
