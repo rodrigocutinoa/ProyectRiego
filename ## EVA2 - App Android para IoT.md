@@ -19,7 +19,10 @@ App Android (Kotlin y Jetpack Compose) para el sistema de riego de la Unidad 1. 
 
 El lado IoT se simula con hertzbench, conectado por MCP: broker MQTT, canal Wi-Fi y fallas.
 
+Pruebas de funcionamiento P1–P14: las 14 pasan en el emulador, con captura cada una (tabla en el README de la app).
+
 # Github
 - App: https://github.com/rodrigocutinoa/RiegoIoT-App
 - Definición y diseño (Hitos 1 y 2): https://github.com/rodrigocutinoa/RiegoIoT-App/blob/main/docs/HITOS_1_2.md
+- Pruebas P1–P14 y seguridad: https://github.com/rodrigocutinoa/RiegoIoT-App#pruebas
 - Proyecto común (EVA1 y simulación): https://github.com/rodrigocutinoa/ProyectRiego
