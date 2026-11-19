@@ -24,7 +24,7 @@ App Android para monitorear y controlar el riego, en un repositorio aparte: **[R
 | 4 | Mensajes cifrados con AES-GCM y código de vinculación |
 | 5 y 6 | Login con SQLite, PBKDF2 y roles operador y observador; historial |
 | 7 | Medidas ISO/IEC 27400 y OT, y **pruebas P1–P14: 14 de 14 pasan**, con capturas ([tabla](https://github.com/rodrigocutinoa/RiegoIoT-App#pruebas)) |
-| 8 | Pendiente: guion de la demostración |
+| 8 | Guion de la demostración ensayado con dos emuladores ([DEMO.md](https://github.com/rodrigocutinoa/RiegoIoT-App/blob/main/docs/DEMO.md)) |
 
 En `hertzbench/` están:
 

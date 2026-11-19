@@ -3,7 +3,7 @@
 Proyecto del curso Aplicaciones Móviles para IoT (TI3042, INACAP). Lo hacen Rodrigo Cutiño y Jenniffer Gonzalez.
 
 - **EVA1 (terminada):** prototipo de riego con ESP32 + MQTT en Wokwi (`esp32_wokwi/`) y una versión con Arduino UNO + HC-05 (`arduino_uno_hc05/`).
-- **EVA2 (en curso):** app Android en Kotlin con Compose, con login y alertas y estado del riego, simulada con [hertzbench](https://github.com/Rixmerz/hertzbench) por MCP. La app está en el repo aparte [RiegoIoT-App](https://github.com/rodrigocutinoa/RiegoIoT-App) (`../RiegoIoT-App`). Hitos 0 a 7 listos (P1–P14: 14 de 14); falta el 8 (demostración). La EVA2 es en pareja.
+- **EVA2 (en curso):** app Android en Kotlin con Compose, con login y alertas y estado del riego, simulada con [hertzbench](https://github.com/Rixmerz/hertzbench) por MCP. La app está en el repo aparte [RiegoIoT-App](https://github.com/rodrigocutinoa/RiegoIoT-App) (`../RiegoIoT-App`). Hitos 0 a 8 listos (P1–P14: 14 de 14; guion de la demo en `docs/DEMO.md` de la app); falta presentarla. La EVA2 es en pareja.
 
 **Antes de seguir, lee [docs/RETOMAR.md](docs/RETOMAR.md) (dónde quedamos y próximos pasos) y [docs/EVA2_AVANCE.md](docs/EVA2_AVANCE.md).** Ahí están los requisitos, la arquitectura propuesta, las decisiones pendientes, la preparación de una máquina nueva y la bitácora.
 
