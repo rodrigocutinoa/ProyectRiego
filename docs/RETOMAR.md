@@ -18,7 +18,8 @@ Notas de la última sesión para seguir sin perder contexto, en este Mac o en ot
 - **Todos los hitos listos (0 a 8).** El guion de la demo está en [RiegoIoT-App/docs/DEMO.md](https://github.com/rodrigocutinoa/RiegoIoT-App/blob/main/docs/DEMO.md), ensayado con dos emuladores: Panel (`Medium_Phone_API_37.0`) y Nodo (`Nodo_Riego`, AVD creado en este Mac).
 - **Para levantar la demo:** `cd ~/Dev/Inacap/AppIoT/RiegoIoT-App && scripts/demo-emuladores.sh`, y desde Claude Code correr `riego-broker.yaml`. Antes, cerrar Android Studio.
 - **Cuentas de prueba:** en el Panel, `rodrigo` (operador) y `jenniffer` (observadora); en el Nodo, `nodo1`. Contraseña de prueba conocida por Rodrigo.
-- **Pendientes de Rodrigo:** ensayar en pareja con Jenniffer, enviar la tarea en el AAI (`.txt` del Escritorio) y avisar al profesor en el issue #1 que los Hitos 7 y 8 están listos (Claude puede redactarlo).
+- **Aviso al profesor:** commit de entrega con `ENTREGA.md` y `Refs #1` (aparece en el issue #1).
+- **Pendientes de Rodrigo:** ensayar en pareja con Jenniffer y enviar la tarea en el AAI (`.txt` del Escritorio). Emuladores cerrados; para la demo, `scripts/demo-emuladores.sh`.
 
 ## Para continuar (2026-11-18, después de las pruebas)
 
